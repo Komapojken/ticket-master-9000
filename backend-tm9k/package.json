@@ -3,9 +3,20 @@
   "version": "1.0.0",
   "description": "Backend for the app ticker master 9000",
   "author": "Robban",
-  "type": "ESM",
-  "main": "server.mjs",
+  "type": "module",
+  "main": "app.mjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "supertest": "^7.2.2",
+    "vitest": "^4.1.10"
+  },
+  "allowScripts": {
+    "better-sqlite3@13.0.3": true
   }
 }

@@ -2,9 +2,15 @@
 
 ## Wireframe
 
-![Skärmbild av Ticket Master 9000](image/skiss-ticket-master-9000.png)
+<p align="center">
+  <img src="image/skiss-ticket-master-9000.png" width="600" alt="Ticket Master 9000">
+</p>
 
+## Important decisions
 
+- Keep it simple, keep it clean.
+- Layered architecture, loose coupling.
+- Use devlog to keep track of progress.
 
 ## Final note
 
