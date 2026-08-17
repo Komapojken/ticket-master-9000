@@ -8,6 +8,18 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-17
 
+Task: Added "Get all" enpoint.
+
+---
+
+Date: 2026-08-17
+
+Task: Added "Delete" endpoint, soft deleting tickets.
+
+---
+
+Date: 2026-08-17
+
 Task: Added "Use ticket" endpoint. Changed routing to make it work. Changed functions from asynchronous to synchronous since sqlite is synchronous.
 
 ---

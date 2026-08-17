@@ -26,3 +26,9 @@ export function deleteTicket(req, res) {
 
     res.status(200).json({ message: "Ticket deleted" });
 }
+
+export function getAll(req, res) {
+    const result = ticketService.getAll();
+
+    res.status(200).json(result);
+}

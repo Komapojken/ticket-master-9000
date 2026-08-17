@@ -41,3 +41,11 @@ export function deleteTicket(id) {
 
     return result.changes > 0;
 }
+
+export function getAll() {
+    const tickets = db.prepare(`
+        SELECT * FROM Tickets    
+    `).all();
+
+    return tickets;
+}
