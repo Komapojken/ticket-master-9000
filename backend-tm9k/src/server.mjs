@@ -1,8 +1,8 @@
-import app from "./app.js";
-import "dotnev/config";
+import app from "./app.mjs";
+import "dotenv/config";
 
-const PORT = process.env.SERVER_PORT;
+const PORT = process.env.PORT;
 
 app.listen(PORT, () => {
-    console.log("Running...");
+    console.log("Listening on port ", PORT);
 });
