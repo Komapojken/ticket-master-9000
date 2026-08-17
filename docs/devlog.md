@@ -8,6 +8,19 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-17
 
+Task: Added "Use ticket" endpoint. Changed routing to make it work. Changed functions from asynchronous to synchronous since sqlite is synchronous.
+
+---
+
+Date: 2026-08-17
+
+Task: Added database and database config. Creating ticket also inserts into database.
+Ticket id now generate a random uuid using crypto from node.
+
+---
+
+Date: 2026-08-17
+
 Task: Implemented code for first endpoint following TDD. Test is green.
 
 ---

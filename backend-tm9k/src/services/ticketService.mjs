@@ -1,7 +1,7 @@
 import crypto from "node:crypto";
 import db from "../database/databaseConfig.mjs";
 
-export async function createTicket() {
+export function createTicket() {
     const ticket = {
         "id" : crypto.randomUUID(),
         "createdAt" : new Date().toISOString(),
@@ -16,4 +16,21 @@ export async function createTicket() {
     `).run(ticket.id, ticket.createdAt, ticket.usedAt, ticket.deletedAt);
 
     return ticket;
+}
+
+export function useTicket(id) {
+    const usedDate = new Date().toISOString();
+
+    console.log("id", id);
+    console.log("usedAt", usedDate);
+
+    const result = db.prepare(`
+        UPDATE Tickets
+        SET usedAt = ?
+        WHERE id = ?
+    `).run(usedDate, id);
+
+    console.log(result);
+
+    return result.changes > 0;
 }

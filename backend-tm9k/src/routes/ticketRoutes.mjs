@@ -7,6 +7,6 @@ const router = express.Router();
 router.post('/', ticketController.createTicket);
 
 // Use ticket admin/user
-router.patch("/", ticketController.useTicket);
+router.patch("/:id/use", ticketController.useTicket);
 
 export default router;
