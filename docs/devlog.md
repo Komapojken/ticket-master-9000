@@ -6,6 +6,12 @@ Record keeping over what is implemented in the project.
 
 ---
 
+Date: 2026-08-17
+
+Task: Installed dotenv and implementer .env-file.
+
+---
+
 Date: 2026-08-16
 
 Task: Installed express.js. First time failed for unknown reason.

@@ -1,5 +1,8 @@
 import app from "./app.js";
+import "dotnev/config";
 
-app.listen(3000, () => {
+const PORT = process.env.SERVER_PORT;
+
+app.listen(PORT, () => {
     console.log("Running...");
 });
