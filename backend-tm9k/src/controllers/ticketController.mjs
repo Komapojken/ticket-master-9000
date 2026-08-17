@@ -16,3 +16,13 @@ export function useTicket(req, res) {
 
     res.status(200).json({ message: "Ticket used" });
 }
+
+export function deleteTicket(req, res) {
+    const result = ticketService.deleteTicket(req.params.id);
+
+    if (!result) {
+        return res.status(404).json({ error: "Ticket not found" });
+    }
+
+    res.status(200).json({ message: "Ticket deleted" });
+}

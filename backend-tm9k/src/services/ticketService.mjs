@@ -21,16 +21,23 @@ export function createTicket() {
 export function useTicket(id) {
     const usedDate = new Date().toISOString();
 
-    console.log("id", id);
-    console.log("usedAt", usedDate);
-
     const result = db.prepare(`
         UPDATE Tickets
         SET usedAt = ?
         WHERE id = ?
     `).run(usedDate, id);
 
-    console.log(result);
+    return result.changes > 0;
+}
+
+export function deleteTicket(id) {
+    const deletedDate = new Date().toISOString();
+
+    const result = db.prepare(`
+        UPDATE Tickets
+        SET deletedAt = ?
+        WHERE id = ?
+    `).run(deletedDate, id);
 
     return result.changes > 0;
 }

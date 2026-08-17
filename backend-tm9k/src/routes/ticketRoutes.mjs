@@ -9,4 +9,7 @@ router.post('/', ticketController.createTicket);
 // Use ticket admin/user
 router.patch("/:id/use", ticketController.useTicket);
 
+// Delete ticket (soft delete) admin
+router.patch("/:id/delete", ticketController.deleteTicket);
+
 export default router;
