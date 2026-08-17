@@ -8,6 +8,12 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-17
 
+Task: Implemented code for first endpoint following TDD. Test is green.
+
+---
+
+Date: 2026-08-17
+
 Task: Installed dotenv and implementer .env-file.
 
 ---

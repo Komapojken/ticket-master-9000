@@ -6,3 +6,7 @@ export async function createTicket(req, res) {
 
     res.status(201).json(ticket);
 }
+
+export async function useTicket(req, res) {
+    
+}
