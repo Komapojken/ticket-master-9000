@@ -109,6 +109,38 @@ describe("Tickets", () => {
         expect(response.body).toEqual({ message: "Ticket deleted" });
     });
 
+    it("should return 404 if ticket does not exist when deleting a ticket (soft-delete)", async () => {
+
+        const id = crypto.randomUUID();
+
+        const response = await request(app)
+            .patch(`/tickets/${id}/delete`)
+            .send({});
+
+        expect(response.status).toBe(404);
+        expect(response.body).toEqual({ message: "Ticket not found" });
+    });
+
+    it("should not delete a ticket already deleted (soft-delete)", async () => {
+
+        const ticketResponse = await request(app)
+            .post("/tickets")
+            .send({});
+
+        const id = ticketResponse.body.id;
+
+        await request(app)
+            .patch(`/tickets/${id}/delete`)
+            .send({});
+
+        const response = await request(app)
+            .patch(`/tickets/${id}/delete`)
+            .send({});
+
+        expect(response.status).toBe(409);
+        expect(response.body).toEqual({ message: "Ticket has already been deleted" });
+    });
+
     it("should return all the tickets", async () => {let testTickets = [];
 
         for(let i = 0; i < 10; i++)

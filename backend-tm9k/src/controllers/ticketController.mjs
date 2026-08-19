@@ -23,14 +23,20 @@ export function useTicket(req, res) {
         }
     }
 
-return res.status(200).json({ message: "Ticket used" });
+    res.status(200).json({ message: "Ticket used" });
 }
 
 export function deleteTicket(req, res) {
     const result = ticketService.deleteTicket(req.params.id);
 
-    if (!result) {
-        return res.status(404).json({ error: "Ticket not found" });
+    if (!result.success) {
+        switch (result.reason) {
+            case "notFound":
+                return res.status(404).json({ message: "Ticket not found" });
+
+            case "deleted":
+                return res.status(409).json({ message: "Ticket has already been deleted" });
+        }
     }
 
     res.status(200).json({ message: "Ticket deleted" });
