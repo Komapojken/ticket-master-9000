@@ -1,11 +1,13 @@
 {
   "name": "backend-tm9k",
   "version": "1.0.0",
-  "description": "Backend for the app ticker master 9000",
+  "description": "Backend for the app ticket master 9000",
   "author": "Robban",
   "type": "module",
-  "main": "app.mjs",
+  "main": "server.mjs",
   "scripts": {
+    "dev": "nodemon src/server.mjs",
+    "start": "node src/server.mjs",
     "test": "vitest"
   },
   "dependencies": {
@@ -14,6 +16,7 @@
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "nodemon": "^3.1.14",
     "supertest": "^7.2.2",
     "vitest": "^4.1.10"
   },

@@ -1,5 +1,9 @@
 # Ticket Master 9000
 
+## About
+
+Ticket Master 9000 is a full-stack monorepo created as a Node.js examination project. It contains a frontend application, an Express-based backend API, and a SQLite database for managing digital tickets.
+
 ## Wireframe
 
 <p align="center">
