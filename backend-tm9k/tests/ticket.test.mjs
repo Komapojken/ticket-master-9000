@@ -2,6 +2,7 @@ import { describe, it, expect } from "vitest";
 import { beforeEach } from "vitest";
 import request from "supertest";
 import app from "../src/app.mjs";
+import crypto from "node:crypto";
 import { createDatabase } from "../src/database/databaseConfig.mjs";
 import { initializeDatabase } from "../src/services/ticketService.mjs";
 
@@ -24,7 +25,7 @@ describe("Tickets", () => {
         expect(response.status).toBe(201);
     });
 
-    it("should use a ticket", async () => {
+    it("should use a valid ticket", async () => {
 
         const ticketResponse = await request(app)
             .post("/tickets")
@@ -38,6 +39,58 @@ describe("Tickets", () => {
 
         expect(response.status).toBe(200);
         expect(response.body).toEqual({ message: "Ticket used" });
+    });
+
+    it("should return 404 if ticket does not exist", async () => {
+
+        const id = crypto.randomUUID();
+
+        const response = await request(app)
+            .patch(`/tickets/${id}/use`)
+            .send({});
+
+        expect(response.status).toBe(404);
+        expect(response.body).toEqual({ message: "Ticket not found" });
+    });
+
+    it("should not be able to be use a ticket twice", async () => {
+
+        const ticketResponse = await request(app)
+            .post("/tickets")
+            .send({});
+
+        const id = ticketResponse.body.id;
+
+        await request(app)
+            .patch(`/tickets/${id}/use`)
+            .send({});
+
+        const response = await request(app)
+            .patch(`/tickets/${id}/use`)
+            .send({});
+
+        expect(response.status).toBe(409);
+        expect(response.body).toEqual({ message: "Ticket already used" });
+    });
+
+    it("should not be able to be use a deleted ticket", async () => {
+
+        const ticketResponse = await request(app)
+            .post("/tickets")
+            .send({});
+
+        const id = ticketResponse.body.id;
+
+        await request(app)
+            .patch(`/tickets/${id}/delete`)
+            .send({});
+
+        const response = await request(app)
+            .patch(`/tickets/${id}/use`)
+            .send({});
+
+        expect(response.status).toBe(410);
+        expect(response.body).toEqual({ message: "Ticket has been deleted" });
     });
 
     it("should delete a ticket (soft-delete)", async () => {

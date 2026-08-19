@@ -8,6 +8,12 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-19
 
+Task: Added failsafe logic to 'use ticket'-endpoint. Added more tests.
+
+---
+
+Date: 2026-08-19
+
 Task: Added more tests and new inmemory database for each test.
 
 ---

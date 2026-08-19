@@ -26,13 +26,31 @@ export function createTicket() {
 export function useTicket(id) {
     const usedDate = new Date().toISOString();
 
+    const ticket = db.prepare(`
+        SELECT usedAt, deletedAt
+        FROM Tickets
+        WHERE id = ?
+    `).get(id);
+
+    if(ticket === undefined) {
+        return { success: false, reason: "notFound" };
+    }
+
+    if(ticket.usedAt != null) {
+        return { success: false, reason: "used" };
+    }
+
+    if(ticket.deletedAt != null) {
+        return { success: false, reason: "deleted"};
+    }
+
     const result = db.prepare(`
         UPDATE Tickets
         SET usedAt = ?
         WHERE id = ?
     `).run(usedDate, id);
-
-    return result.changes > 0;
+    
+    return { success: true };
 }
 
 export function deleteTicket(id) {

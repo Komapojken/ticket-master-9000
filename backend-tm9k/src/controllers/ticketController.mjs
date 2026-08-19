@@ -10,11 +10,20 @@ export function createTicket(req, res) {
 export function useTicket(req, res) {
     const result = ticketService.useTicket(req.params.id);
 
-    if (!result) {
-        return res.status(404).json({ error: "Ticket not found" });
+    if (!result.success) {
+        switch (result.reason) {
+            case "notFound":
+                return res.status(404).json({ message: "Ticket not found" });
+
+            case "used":
+                return res.status(409).json({ message: "Ticket already used" });
+
+            case "deleted":
+                return res.status(410).json({ message: "Ticket has been deleted" });
+        }
     }
 
-    res.status(200).json({ message: "Ticket used" });
+return res.status(200).json({ message: "Ticket used" });
 }
 
 export function deleteTicket(req, res) {
