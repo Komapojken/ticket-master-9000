@@ -6,6 +6,24 @@ Record keeping over what is implemented in the project.
 
 ---
 
+Date: 2026-08-19
+
+Task: Added more tests and new inmemory database for each test.
+
+---
+
+Date: 2026-08-19
+
+Task: Added loose coupling to database confiq. Tests now use inmemory database.
+
+---
+
+Date: 2026-08-19
+
+Task: Added starting scripts. 'npm run dev' now working. Updated readme and .gitignore.
+
+---
+
 Date: 2026-08-17
 
 Task: Added "Get all" enpoint.
