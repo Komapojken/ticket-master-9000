@@ -1,5 +1,10 @@
 import crypto from "node:crypto";
-import db from "../database/databaseConfig.mjs";
+
+let db;
+
+export function initializeDatabase(database) {
+    db = database;
+}
 
 export function createTicket() {
     const ticket = {
