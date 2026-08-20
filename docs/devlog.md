@@ -6,6 +6,12 @@ Record keeping over what is implemented in the project.
 
 ---
 
+Date: 2026-08-20
+
+Task: Added cors in backend.
+
+---
+
 Date: 2026-08-19
 
 Task: Added failsafe logic to 'delete ticket'-endpoint. Added more tests.
