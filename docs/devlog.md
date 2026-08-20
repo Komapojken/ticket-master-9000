@@ -8,6 +8,12 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-20
 
+Task: Start simple frontend.
+
+---
+
+Date: 2026-08-20
+
 Task: Added cors in backend.
 
 ---

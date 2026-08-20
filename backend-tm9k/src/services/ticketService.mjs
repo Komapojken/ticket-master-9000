@@ -66,10 +66,6 @@ export function deleteTicket(id) {
         return { success: false, reason: "notFound" };
     }
 
-    if(ticket.usedAt != null) {
-        return { success: false, reason: "used" };
-    }
-
     if(ticket.deletedAt != null) {
         return { success: false, reason: "deleted"};
     }
