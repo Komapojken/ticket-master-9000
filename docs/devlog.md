@@ -8,6 +8,12 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-24
 
+Task: Update layout and functionality of header.
+
+---
+
+Date: 2026-08-24
+
 Task: Added create ticket, use ticket, delete ticket, list all tickets to frontend.
 
 ---
