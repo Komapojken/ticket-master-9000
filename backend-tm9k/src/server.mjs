@@ -1,5 +1,5 @@
-import app from "./app.mjs";
 import "dotenv/config";
+import app from "./app.mjs";
 import { createDatabase } from "./database/databaseConfig.mjs";
 import { initializeDatabase } from "./services/ticketService.mjs";
 
