@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CreateTicketView from "./CreateTicketView";
 import ListAllTicketsView from "./ListAllTicketsView";
 import UseTicketView from "./UseTicketView";
@@ -21,13 +21,25 @@ export default function TicketApp() {
     const activeMenuButton = "flex-1 flex items-center justify-center gap-2 border rounded px-4 py-2 bg-blue-100 border-blue-500";
     const normalMenuButton = "flex-1 flex items-center justify-center gap-2 border rounded px-4 py-2 hover:bg-gray-100";
     
-    function onButtonClicked() {
-        console.log("Clicked");
-    }
+    const quotes = [
+        "Death and destruction to ignorance.",
+        "Ignorance is the root cause to all failure.",
+        "If knowledge does not prevail, ignorance will be victorious.",
+        "Asking questions is the path to less ignorance.",
+        "Only the ignorant persist in their lack of knowledge.",
+    ];
+
+    const [quote, setQuote] = useState("");
+
+    useEffect(() => {
+        setQuote(
+            quotes[Math.floor(Math.random() * quotes.length)]
+        );
+    }, []);
 
     return (
         <>
-            <div className="max-w-4xl w-full mx-auto mt-4 border rounded-xl flex flex-col min-h-screen">
+            <div className="max-w-4xl w-full mx-auto mt-4 border rounded-xl flex flex-col">
                 <header>
                     <div className="flex justify-between items-start pr-6 pl-6 pb-3 pt-3">
                         <h1 className="text-4xl font-bold tracking-tight">
@@ -104,7 +116,7 @@ export default function TicketApp() {
                     </nav>
                 </header>
 
-                <main className="flex-1 border rounded-lg p-8 mx-6 mt-3">
+                <main className="min-h-[500px] border rounded-lg p-8 mx-6 mt-3">
                     {view === "create" && (
                         <CreateTicketView />
                     )}
@@ -122,8 +134,13 @@ export default function TicketApp() {
                     )}
                 </main>
 
-                <footer>
-
+                <footer className="border-t my-6 px-6 py-4 flex justify-between items-center">
+                    <p className="italic text-gray-500">
+                        CourseBot: "{quote}"
+                    </p>
+                    <p>
+                        © 2026 Robban | Next.js + Express
+                    </p>
                 </footer>
             </div>
         </>
