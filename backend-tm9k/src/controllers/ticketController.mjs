@@ -23,7 +23,7 @@ export function useTicket(req, res) {
         }
     }
 
-    res.status(200).json({ message: "Ticket used" });
+    res.status(200).json(result.ticket);
 }
 
 export function deleteTicket(req, res) {

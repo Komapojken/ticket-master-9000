@@ -10,7 +10,7 @@ import { formatDate } from "@/utils/formatDate";
 export default function CreateTicketView() {
     const [ticket, setTicket] = useState<Tickets | null>(null);
 
-    const normalCreateButton = "flex-1 flex items-center justify-center gap-2 border rounded px-4 py-2 hover:bg-gray-100";
+    const normalButton = "flex-1 flex items-center justify-center gap-2 border rounded px-4 py-2 hover:bg-gray-100";
 
     async function handleCreateTicket() {
         const newTicket = await createTicket();
@@ -55,7 +55,7 @@ export default function CreateTicketView() {
                 </div>                
 
                 <button
-                    className={normalCreateButton}
+                    className={normalButton}
                     onClick={handleCreateTicket}
                 >
                     <Plus size={18} />

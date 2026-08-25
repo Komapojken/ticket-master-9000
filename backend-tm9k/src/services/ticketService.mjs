@@ -49,8 +49,17 @@ export function useTicket(id) {
         SET usedAt = ?
         WHERE id = ?
     `).run(usedDate, id);
-    
-    return { success: true };
+
+    const updatedTicket = db.prepare(`
+        SELECT *
+        FROM Tickets
+        WHERE id = ?
+    `).get(id);
+
+    return {
+        success: true,
+        ticket: updatedTicket,
+    };
 }
 
 export function deleteTicket(id) {

@@ -26,11 +26,13 @@ export async function useTicket(id: string) {
         },
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-        throw new Error("Failed to use the ticket");
+        throw new Error(data.message);
     }
 
-    return response.json();
+    return data;
 }
 
 // Delete a ticket (soft delete)

@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { listAllTickets } from "../../lib/api";
-import type { Ticket } from "../../lib/types";
+import type { Tickets } from "../../lib/types";
 
 export default function ListAllTicketsView() {
-    const [tickets, setTickets] = useState<Ticket[]>([]);
+    const [tickets, setTickets] = useState<Tickets[]>([]);
 
     useEffect(() => {
         async function loadTickets() {

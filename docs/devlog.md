@@ -6,6 +6,12 @@ Record keeping over what is implemented in the project.
 
 ---
 
+Date: 2026-08-25
+
+Task: Improved useTicketView layout and functionality. Changes to backend to fit frontend usage.
+
+---
+
 Date: 2026-08-24
 
 Task: Improved createview layout and functionality. Added formatDate util and ticketStatus util.
