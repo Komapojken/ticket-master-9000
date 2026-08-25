@@ -116,7 +116,7 @@ export default function TicketApp() {
                     </nav>
                 </header>
 
-                <main className="min-h-[510px] border rounded-lg p-8 mx-6 mt-3">
+                <main className="min-h-[530px] border rounded-lg p-8 mx-6 mt-3">
                     {view === "create" && (
                         <CreateTicketView />
                     )}

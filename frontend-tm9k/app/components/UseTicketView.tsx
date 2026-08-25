@@ -12,6 +12,8 @@ export default function UseTicketView() {
     const [ticket, setTicket] = useState<Tickets | null>(null);
     const [error, setError] = useState("");
 
+    const status = ticket ? getTicketStatus(ticket) : null;
+    const hasTicket = ticket !== null;
     const normalButton = "flex-1 flex items-center justify-center gap-2 border rounded px-4 py-2 hover:bg-gray-100";
 
     async function handleUseTicket() {
@@ -31,73 +33,72 @@ export default function UseTicketView() {
         <>
             <div className="flex flex-col items-center justify-center h-full gap-6">
                 <div className="min-h-[300px] flex flex-col items-center justify-center">
-                    {!ticket && (
-                        <>
-                            <div>
-                                <Ticket className="w-28 h-28 text-gray-800" strokeWidth={0.5} />
-                            </div>                    
+                    <div>
+                        <Ticket className="w-28 h-28 text-gray-800" strokeWidth={0.5} />
+                    </div>
 
-                            <div className="text-center space-y-1">
-                                <h2 className="text-2xl font-semibold">
-                                    Fill in code to use ticket
-                                </h2>
+                    <div className="text-center space-y-1">
+                        <h2 className="text-2xl font-semibold">
+                            {hasTicket
+                                ? "✓ Ticket used successfully"
+                                : "Fill in code to use ticket"}
+                        </h2>
 
-                                <p>
-                                    <span className="font-semibold">Code:</span><br />
-                                    <input
-                                        type="text"
-                                        placeholder="Ticket id"
-                                        value={ticketId}
-                                        onChange={(e) => setTicketId(e.target.value)}
-                                        className="border rounded px-1 py-1 w-full"
-                                    />
-                                </p>
+                        <div className="h-14 flex items-center justify-center">
+                            {hasTicket
+                                ? 
+                                    <p>
+                                        <span className="font-semibold">Code:</span><br />
+                                        <span className="font-mono w-80">
+                                            {ticket.id}
+                                        </span>
+                                    </p>
+                                : 
+                                    <p>
+                                        <span className="font-semibold">Code:</span><br />
+                                        <input
+                                            value={ticketId}
+                                            onChange={(e) => setTicketId(e.target.value)}
+                                            className="border rounded px-2 py-1 w-80"
+                                        />
+                                    </p>
+                            }
+                        </div>
 
-                                <p>
-                                    <span className="font-semibold">Created:</span><br />
-                                    ----------
-                                </p>
+                        <div className="h-14 flex items-center justify-center">
+                            {hasTicket
+                                ? 
+                                    <p>
+                                        <span className="font-semibold">Created:</span><br />
+                                        {formatDate(ticket.createdAt)}
+                                    </p>
+                                : 
+                                    <p>
+                                        <span className="font-semibold">Created:</span><br />
+                                        <span>----------</span>
+                                    </p>
+                            }
+                        </div>
 
-                                <p>
-                                    <span className="font-semibold">Status:</span><br />
-                                    <span className={`rounded-full px-3 py-1`}>
-                                        ----------
-                                    </span>
-                                </p>
-                            </div>
-                        </>
-                    )}
-
-                    {ticket && (
-                        <>
-                            <div>
-                                <Ticket className="w-28 h-28 text-gray-800" strokeWidth={0.5} />
-                            </div>                    
-
-                            <div className="text-center space-y-1">
-                                <h2 className="text-2xl font-semibold">
-                                    ✓ Ticket used successfully
-                                </h2>
-
-                                <p>
-                                    <span className="font-semibold">Code:</span><br />
-                                    {ticket.id}
-                                </p>
-
-                                <p>
-                                    <span className="font-semibold">Created:</span><br />
-                                    {formatDate(ticket.createdAt)}
-                                </p>
-
-                                <p>
-                                    <span className="font-semibold">Status:</span><br />
-                                    <span className={`rounded-full px-3 py-1 ${getTicketStatus(ticket).className}`}>
-                                        {getTicketStatus(ticket).text}
-                                    </span>
-                                </p>
-                            </div>
-                        </>
-                    )}
+                        <div className="h-14 flex items-center justify-center">
+                            {hasTicket
+                                ? 
+                                    <p>
+                                        <span className="font-semibold">Status:</span><br />
+                                        <span className={`rounded-full px-3 py-1 ${status?.className}`}>
+                                            {status?.text}
+                                        </span>
+                                    </p>
+                                : 
+                                    <p>
+                                        <span className="font-semibold">Status:</span><br />
+                                        <span className={`rounded-full px-3 py-1`}>
+                                            <span>----------</span>
+                                        </span>
+                                    </p>
+                            }
+                        </div>
+                    </div>
                 </div>                
 
                 <button
@@ -105,7 +106,7 @@ export default function UseTicketView() {
                     onClick={handleUseTicket}
                 >
                     <Ticket size={18} />
-                    Use ticket
+                    Delete ticket
                 </button>
 
                 {error && (

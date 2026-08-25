@@ -8,6 +8,12 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-25
 
+Task: Refactor of useTicketView to mirror delete.
+
+---
+
+Date: 2026-08-25
+
 Task: Improved deleteTicketView layout and functionality. Changes to backend to support frontend usage.
 
 ---
