@@ -18,6 +18,8 @@ export default function TicketApp() {
     const [view, setView] = useState("create");
     const [role, setRole] = useState("user");
 
+    const activeRoleButton = "flex-1 flex items-center justify-center gap-2 border px-2 py-1 text-sm rounded bg-blue-100 border-blue-500";
+    const normalRoleButton = "flex-1 flex items-center justify-center gap-2 border px-2 py-1 text-sm rounded hover:bg-gray-100";
     const activeMenuButton = "flex-1 flex items-center justify-center gap-2 border rounded px-4 py-2 bg-blue-100 border-blue-500";
     const normalMenuButton = "flex-1 flex items-center justify-center gap-2 border rounded px-4 py-2 hover:bg-gray-100";
     
@@ -52,24 +54,16 @@ export default function TicketApp() {
                             </span>
 
                             <button
+                                className={role === "user" ? activeRoleButton : normalRoleButton}
                                 onClick={() => setRole("user")}
-                                className={
-                                    role === "user"
-                                        ? "flex-1 flex items-center justify-center gap-2 border px-2 py-1 text-sm rounded bg-blue-100 border-blue-500"
-                                        : "flex-1 flex items-center justify-center gap-2 border px-2 py-1 text-sm rounded hover:bg-gray-100"
-                                }
                             >
                                 <User size={16} />
                                 User
                             </button>
 
                             <button
+                                className={role === "admin" ? activeRoleButton : normalRoleButton}
                                 onClick={() => setRole("admin")}
-                                className={
-                                    role === "admin"
-                                        ? "flex-1 flex items-center justify-center gap-2 border px-2 py-1 text-sm rounded bg-blue-100 border-blue-500"
-                                        : "flex-1 flex items-center justify-center gap-2 border px-2 py-1 text-sm rounded hover:bg-gray-100"
-                                }
                             >
                                 <Shield size={16} />
                                 Admin
@@ -116,7 +110,7 @@ export default function TicketApp() {
                     </nav>
                 </header>
 
-                <main className="min-h-[530px] border rounded-lg p-8 mx-6 mt-3">
+                <main className="min-h-[530px] border rounded-lg px-8 py-4 mx-6 mt-3">
                     {view === "create" && (
                         <CreateTicketView />
                     )}

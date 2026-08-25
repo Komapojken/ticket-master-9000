@@ -8,6 +8,12 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-25
 
+Task: Refactor and improvment of listAllTicketView layout and functionality.
+
+---
+
+Date: 2026-08-25
+
 Task: Refactor of createTicketView to mirror both use and delete. No changes to backend.
 
 ---

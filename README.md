@@ -10,6 +10,20 @@ Ticket Master 9000 is a full-stack monorepo created as a Node.js examination pro
   <img src="image/skiss-ticket-master-9000.png" width="600" alt="Ticket Master 9000">
 </p>
 
+## Implemented layout
+
+<p align="center">
+  <img src="image/ticket-master-9000-01.png" width="600" alt="User create ticket">
+</p>
+
+<p align="center">
+  <img src="image/ticket-master-9000-02.png" width="600" alt="Admin use ticket">
+</p>
+
+<p align="center">
+  <img src="image/ticket-master-9000-03.png" width="600" alt="Admin list tickets">
+</p>
+
 ## Important decisions
 
 - Since it is a school project. All endpoints are public.
