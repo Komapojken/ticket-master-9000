@@ -106,7 +106,7 @@ export default function UseTicketView() {
                     onClick={handleUseTicket}
                 >
                     <Ticket size={18} />
-                    Delete ticket
+                    Use ticket
                 </button>
 
                 {error && (
