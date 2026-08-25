@@ -85,7 +85,16 @@ export function deleteTicket(id) {
         WHERE id = ?
     `).run(deletedDate, id);
 
-    return { success: true };
+    const deletedTicket = db.prepare(`
+        SELECT *
+        FROM Tickets
+        WHERE id = ?
+    `).get(id);
+
+    return {
+        success: true,
+        ticket: deletedTicket,
+    };
 }
 
 export function getAll() {

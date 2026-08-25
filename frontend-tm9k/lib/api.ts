@@ -44,11 +44,13 @@ export async function deleteTicket(id: string) {
         },
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-        throw new Error("Failed to delete the ticket");
+        throw new Error(data.message);
     }
 
-    return response.json();
+    return data;
 }
 
 // List all tickets

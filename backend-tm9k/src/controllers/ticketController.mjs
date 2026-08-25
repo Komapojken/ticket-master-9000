@@ -39,7 +39,7 @@ export function deleteTicket(req, res) {
         }
     }
 
-    res.status(200).json({ message: "Ticket deleted" });
+    res.status(200).json(result.ticket);
 }
 
 export function getAll(req, res) {
