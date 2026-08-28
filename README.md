@@ -8,7 +8,7 @@ Ticket Master 9000 is a full-stack monorepo developed as a Node.js examination p
 
 Clone the repository.
 
-Frontend runs on http://localhost:3000, backend on http://localhost:3001. Start backend before using the frontend.
+Requires Node.js 22 or newer. Frontend runs on http://localhost:3000, backend on http://localhost:3001. Start backend before using the frontend.
 
 ### Backend
 

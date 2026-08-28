@@ -8,6 +8,12 @@ Record keeping over what is implemented in the project.
 
 Date: 2026-08-28
 
+Task: Bugfix. Error when installing on win11 with better-sqlite3 using npm install in backend. Known error using version 13.
+
+---
+
+Date: 2026-08-28
+
 Task: Added tests in frontend. Fixed broken tests in backend. Added examples for env-files. Updated documents. Removed database from git. Final update. Project done.
 
 ---
