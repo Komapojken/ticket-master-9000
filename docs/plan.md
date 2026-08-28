@@ -34,4 +34,4 @@ Endpoints required:
 - Delete ticket (patch /ticket/:id/delete)
 - List all tickets (get /tickets)
 
-Endpoints for roles?
+Endpoints for roles? Roles handled in frontend UI only.

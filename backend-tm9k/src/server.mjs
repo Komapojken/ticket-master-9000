@@ -4,7 +4,7 @@ import { createDatabase } from "./database/databaseConfig.mjs";
 import { initializeDatabase } from "./services/ticketService.mjs";
 
 // Setting up database
-export const db = createDatabase("./src/database/tickets.db");
+const db = createDatabase("./src/database/tickets.db");
 initializeDatabase(db);
 
 // Setting port for server

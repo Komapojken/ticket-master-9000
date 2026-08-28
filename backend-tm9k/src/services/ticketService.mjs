@@ -44,7 +44,7 @@ export function useTicket(id) {
         return { success: false, reason: "deleted"};
     }
 
-    const result = db.prepare(`
+    db.prepare(`
         UPDATE Tickets
         SET usedAt = ?
         WHERE id = ?
@@ -79,7 +79,7 @@ export function deleteTicket(id) {
         return { success: false, reason: "deleted"};
     }
 
-    const result = db.prepare(`
+    db.prepare(`
         UPDATE Tickets
         SET deletedAt = ?
         WHERE id = ?

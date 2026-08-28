@@ -6,6 +6,12 @@ Record keeping over what is implemented in the project.
 
 ---
 
+Date: 2026-08-28
+
+Task: Added tests in frontend. Fixed broken tests in backend. Added examples for env-files. Updated documents. Removed database from git. Final update. Project done.
+
+---
+
 Date: 2026-08-25
 
 Task: Refactor and improvment of listAllTicketView layout and functionality.

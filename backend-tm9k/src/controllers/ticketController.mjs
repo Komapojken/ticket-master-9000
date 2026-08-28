@@ -1,4 +1,3 @@
-import express from "express";
 import * as ticketService from "../services/ticketService.mjs";
 
 export function createTicket(req, res) {
